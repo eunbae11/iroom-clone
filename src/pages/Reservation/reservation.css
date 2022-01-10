@@ -1,5 +1,6 @@
 .reservation {
   position: relative;
+  height: 100vh;
 }
 .reservationBackgroundImg {
   position: relative;

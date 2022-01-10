@@ -7,6 +7,13 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 
 
 export default function RoomInfos() {
+    const [timer, setTimer] = useState(false);
+    useEffect(() => {
+        setTimeout(() =>{
+            setTimer(true);
+        }, 1000);
+    }, [])
+
     const a = useParams();
 
     const [RoomInfo, setRoomInfos] = useState([""]);
@@ -23,9 +30,9 @@ export default function RoomInfos() {
         }
       }
         getRoomInfo().then(data => setRoomInfos(data));
-    }, [])
+    }, [a.roomNum])
 
-    console.log(a);
+    console.log(timer);
     
     let roomName = "";
     let roomInfo1 = "";
@@ -41,9 +48,9 @@ export default function RoomInfos() {
         }
 
     return(
-        <div className="bgContainer">
+        <div className={timer ? "bgContainer mountedBgContainer" : "bgContainer"}>
             <img className="bgImage" src={require(`../Introduction/images/${a.roomNum}.jpg`).default} alt=""/>
-        <div className="container">
+        <div className={timer ? "container mountedContainer" : "container"}>
             <div className="infoBox">
                 <h1>{roomName}</h1><br/>
                 <h2>{roomInfo1}</h2><br/><br/><br/>
@@ -51,10 +58,10 @@ export default function RoomInfos() {
                 <div>2️⃣ &nbsp;{roomInfo3}</div><br/>
             </div>
             <div className="iconBox1">
-                <i class="far fa-clock"></i>
-                <i class="fas fa-desktop"></i>
-                <i class="fas fa-users"></i>
-                <i class="fas fa-wifi"></i>
+                <i className="far fa-clock"></i>
+                <i className="fas fa-desktop"></i>
+                <i className="fas fa-users"></i>
+                <i className="fas fa-wifi"></i>
             </div>
             <div className="iconBox2">
                 <span>24 hour access</span>
@@ -63,11 +70,13 @@ export default function RoomInfos() {
                 <span>Free WIFI</span>
             </div>
 
-            <div className="btnToIntro">
-            <Link to="/intro">Go Back</Link>
+            <div className="btnContainer">
+                <button className="btnToIntro">
+                    <Link to="/intro">Go Back</Link>
+                </button> 
             </div>
-        </div>
-        </div>
+            </div>
+            </div>
     );
     }
     

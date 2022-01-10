@@ -98,6 +98,7 @@
   position: relative;
   width: 100%;
   background: #06b495;
+  height: 46px;
   /* padding-left: calc(50% - 340px); */
 }
 .userReserveInfo > span {
@@ -127,6 +128,8 @@
   margin: 0 auto;
   box-sizing: border-box;
   padding: 30px 20px 0;
+  overflow-y:scroll;
+  height: calc(100vh - 220px);
 }
 .userReserve li {
   margin: 35px 0;

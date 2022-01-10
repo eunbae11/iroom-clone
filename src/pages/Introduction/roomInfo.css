@@ -1,5 +1,7 @@
 .bgContainer {
   height: fit-content;
+  opacity: 0;
+  transition: 0.25s;
 }
 
 .bgImage {
@@ -11,6 +13,7 @@
 }
 
 .container {
+  opacity: 0;
   margin-top: 3%;
   width: 43%;
   height: 70%;
@@ -21,6 +24,12 @@
   background-color: white;
   font-family: "Noto Sans KR", sans-serif;
   box-shadow: var(--shd, 0 1px 4px rgba(0, 0, 0, 0.6));
+  transition: 3s;
+}
+
+.mountedContainer,
+.mountedBgContainer {
+  opacity: 1;
 }
 
 .container h1 {
@@ -66,14 +75,19 @@
   text-align: center;
 }
 
+.btnContainer {
+  width: 100%;
+}
+
 .btnToIntro {
+  border: none;
   margin-top: 5%;
-  width: 191px;
+  width: 200px;
   height: 44px;
   text-align: center;
   background-color: #3eccb4;
   transition: 500ms;
-  margin-left: calc((100% - 191px) / 2);
+  margin-left: calc((100% - 200px) / 2);
   text-decoration: none;
 }
 
@@ -89,6 +103,8 @@
   line-height: 44px;
 }
 
+/* responsive design */
+
 @media screen and (max-width: 767px) {
   .bgContainer {
     height: fit-content;
@@ -98,13 +114,12 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-size: cover;
-    position: absolute;
   }
 
   .container {
-    height: 55%;
+    height: 60%;
     width: 60%;
   }
 
@@ -127,7 +142,7 @@
 
   .iconBox1 {
     display: flex;
-    padding-top: 20%;
+    padding-top: 15%;
   }
 
   .iconBox1 i {
@@ -149,5 +164,36 @@
 
   .btnToIntro {
     margin-top: 10%;
+    width: 150px;
+    margin-left: calc((100% - 150px) / 2);
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1000px) {
+  .container {
+    height: 7 0%;
+    width: 60%;
+  }
+
+  .bgContainer {
+    height: fit-content;
+  }
+
+  .bgImage {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+  }
+
+  .iconBox1 {
+    display: flex;
+    padding-top: 15%;
+  }
+
+  .iconBox2 {
+    display: flex;
+    padding-top: 5%;
   }
 }

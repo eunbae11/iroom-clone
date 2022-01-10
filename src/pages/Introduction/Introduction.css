@@ -53,8 +53,7 @@
 .room4Box :hover,
 .room6Box :hover,
 .room10Box :hover,
-.room20Box :hover,
-.overlay:hover .room4Box {
+.room20Box :hover {
   transition: 1s;
   filter: brightness(70%);
 }
@@ -63,7 +62,6 @@
   margin: 0 auto;
   position: absolute;
   display: flex;
-  z-index: 1;
   width: 250px;
   height: 50px;
   font-family: "Noto Sans KR", sans-serif;
@@ -74,6 +72,7 @@
   align-items: center;
   justify-content: center;
   opacity: 0;
+  z-index: 1;
 
   left: 50%;
   top: 50%;
@@ -89,6 +88,11 @@
 .room20Box:hover .overlay {
   opacity: 1;
   transition: 1s;
+  color: white;
+}
+
+.overlay {
+  pointer-events: none;
 }
 
 @media screen and (max-width: 767px) {
